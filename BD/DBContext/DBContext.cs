@@ -6,11 +6,11 @@ namespace BD.DBContext
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {
-        //public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        //   : base(options)
-        //{
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+           : base(options)
+        {
 
-        //}
+        }
         public ApplicationDbContext()
         {
 
@@ -27,9 +27,9 @@ namespace BD.DBContext
         public DbSet<WorkingHours> WorkingHours { get; set; }
         public DbSet<WorkingHouseDoctor> WorkingHouseDoctor { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Initial Catalog=Smile;Database=Smile;Trusted_Connection=True;");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Initial Catalog=Smile;Database=Smile;Trusted_Connection=True;");
+        //}
     }
 }
