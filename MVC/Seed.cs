@@ -1,7 +1,7 @@
 ﻿using BD.DBContext;
 using BD.Entity;
 
-namespace BD
+namespace MVC
 {
     public class Seed
     {
