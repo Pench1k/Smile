@@ -31,10 +31,9 @@ builder.Services.AddScoped<SignInManager<User>>();
 // Add Authorization Policies
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("StudentPolicy", policy => policy.RequireRole("Студент"));
-    options.AddPolicy("TeacherPolicy", policy => policy.RequireRole("Преподаватель"));
-    options.AddPolicy("DekanPolicy", policy => policy.RequireRole("Декан"));
-    options.AddPolicy("DeputyPolicy", policy => policy.RequireRole("Заместитель кафедры"));
+    options.AddPolicy("Doctor", policy => policy.RequireRole("Врач"));
+    options.AddPolicy("Patient", policy => policy.RequireRole("Пациент"));
+    options.AddPolicy("Admin", policy => policy.RequireRole("Админ"));
 });
 
 // Configure Authentication
