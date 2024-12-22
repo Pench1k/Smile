@@ -1,4 +1,6 @@
-﻿namespace BD.Entity
+﻿using System.Data;
+
+namespace BD.Entity
 {
     public class Reception
     {
@@ -8,6 +10,7 @@
 
         public int? PatientId { get; set; }
         public Patient? Patient { get; set; }
+        public DateTime? DateTimeReception { get; set; }
 
         //Статус явки
         public AttendanceStatus? Status { get; set; }
@@ -19,7 +22,7 @@
 
     public enum AttendanceStatus
     {
-        Присутствует,
-        Отсутствует,
+        Обрабатывается,
+        Принята,
     }
 }

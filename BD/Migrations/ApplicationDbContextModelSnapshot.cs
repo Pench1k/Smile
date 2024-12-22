@@ -101,6 +101,9 @@ namespace BD.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<DateTime>("DateTimeReception")
+                        .HasColumnType("datetime2");
+
                     b.Property<int?>("PatientId")
                         .HasColumnType("int");
 
