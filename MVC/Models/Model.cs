@@ -1,8 +1,8 @@
-﻿using System.Data;
+﻿using BD.Entity;
 
-namespace BD.Entity
+namespace MVC.Models
 {
-    public class Reception
+    public class Model
     {
         public int Id { get; set; }
         public int? WorkingHouseDoctorId { get; set; }
@@ -21,9 +21,10 @@ namespace BD.Entity
     }
 
     public enum AttendanceStatus
-    {   
+    {
         НетЗаписи,
         Обрабатывается,
         Принята,
     }
 }
+

@@ -21,9 +21,9 @@ namespace MVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var user = await _userManager.FindByIdAsync("2abfe17d-06ea-493a-81d0-dfc0a4e5c94e");
-            //var user = await _userManager.FindByIdAsync("397aa1bc-dd39-4551-983e-0ee755b1287c");
-            //var user = await _userManager.FindByIdAsync("39e4fe87-b165-4af0-ac0d-c94b4a9a964a");
+            var user = await _userManager.FindByIdAsync("6e1d5268-016e-4c81-be3f-347b18b85395"); //6e1d5268-016e-4c81-be3f-347b18b85395 пациент
+            //var user = await _userManager.FindByIdAsync("cb4b72b8-426b-4377-9c72-12078ffecc98"); //cb4b72b8-426b-4377-9c72-12078ffecc98 доктор
+            //var user = await _userManager.FindByIdAsync("39e4fe87-b165-4af0-ac0d-c94b4a9a964a"); //928a710a-40f5-4ff3-9c37-02c39f3c167d админ
             if (user == null)
                 return Privacy();
             await _signInManager.SignInAsync(user, isPersistent: false);

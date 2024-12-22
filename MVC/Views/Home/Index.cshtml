@@ -240,10 +240,14 @@
         <nav>
             <a href="#">О нас</a>
             <a href="#services">Услуги</a>
-            @if(User.IsInRole("Пациент"))
+            @if (User.IsInRole("Пациент"))
             {
-                <a href="#" onclick="openModal()">Записаться на прием</a>
+                <a href="@Url.Action("Index", "MakeAnAppointment", new { id = UserManager.GetUserId(User) })">
+                    Записаться на прием
+                </a>
             }
+
+
             @if (User.IsInRole("Врач"))
             {
                 <a href="#" onclick="openModal()">Просмотреть приемы</a>
@@ -306,100 +310,5 @@
             <p>© 2024 Beautiful Smile. Все права защищены.</p>
         </footer>
     }
-    <style>
-        /* Модальное окно */
-        .modal {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 400px;
-            max-height: 500px; /* Ограничиваем высоту */
-            overflow-y: auto; /* Добавляем прокрутку, если контент превышает высоту */
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Центрируем окно по экрану */
-            text-align: center;
-            z-index: 1000; /* Размещаем окно поверх других элементов */
-            display: none; /* Изначально скрыто */
-        }
-
-            .modal h2 {
-                margin-top: 0;
-            }
-
-            .modal input {
-                width: calc(100% - 20px);
-                padding: 10px;
-                margin: 10px 0;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-
-            .modal button {
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-
-            .modal .confirm {
-                background: #28a745;
-                color: #fff;
-                font-weight: bold;
-            }
-
-            .modal .submit {
-                background: #d3f4d3;
-                color: #28a745;
-                font-weight: bold;
-                width: 100%;
-            }
-
-            .modal .close {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                background: #fff;
-                color: #ff4b4b;
-                border: none;
-                border-radius: 80%;
-                width: 30px;
-                height: 30px;
-                cursor: pointer;
-            }
-
-            .modal p {
-                font-size: 12px;
-                color: #777;
-            }
-    </style>
-    <script>
-        function openModal() {
-            document.getElementById('modal').style.display = 'block';  // Показываем модальное окно
-            document.getElementById('overlay').style.display = 'block';  // Показываем затемнение фона
-        }
-
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';  // Скрываем модальное окно
-            document.getElementById('overlay').style.display = 'none';  // Скрываем затемнение фона
-        }
-
-        function confirmInput() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-
-            if (name && phone) {
-                alert(`Данные подтверждены:\nИмя: ${name}\nТелефон: ${phone}`);
-            } else {
-                alert("Пожалуйста, заполните все поля!");
-            }
-        }
-
-        function submitForm() {
-            alert("Заявка отправлена!");
-        }
-    </script>
 </body>
 </html>

@@ -40,12 +40,12 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.Cookie.HttpOnly = true;
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-        options.LoginPath = "/Home/Login";
-        options.AccessDeniedPath = "/Home/Index";
-        options.SlidingExpiration = true;
-        options.ReturnUrlParameter = string.Empty;
+        options.Cookie.HttpOnly = false;
+        //options.ExpireTimeSpan = TimeSpan.FromSeconds(1);
+        //options.LoginPath = "/Home/Login";
+        //options.AccessDeniedPath = "/Home/Index";
+        //options.SlidingExpiration = true;
+        //options.ReturnUrlParameter = string.Empty;
     });
 
 var app = builder.Build();
