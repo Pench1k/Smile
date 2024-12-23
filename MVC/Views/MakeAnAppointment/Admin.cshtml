@@ -253,7 +253,7 @@
 
 				// Выполняем AJAX-запрос для получения врачей
 				$.ajax({
-					url: '/Doctor/Zapis', // Путь к методу в контроллере
+					url: '/Admin/Zapis', // Путь к методу в контроллере
 					type: 'GET',
 					data: { doctorid: doctorId }, // Отправляем ID клиники
 					success: function (data) {
@@ -302,18 +302,14 @@
 
 			// Используем делегирование событий
 			$(document).on('click', '.reception', function () {
-				var path = window.location.pathname;
-
-				// Разделяем путь по слэшам и извлекаем последний сегмент
-				var pathSegments = path.split('/');
-				var id = pathSegments[pathSegments.length - 1];
-				var userConfirmed = confirm("Вы уверены, что хотите записаться на данный прием ?");
+				
+				var userConfirmed = confirm("Вы уверены, что хотите подтвердить данный прием ?");
 				var receptionId = $(this).data('id'); // Получаем ID клиники из атрибута data-id
 				if (userConfirmed) {
 					$.ajax({
-						url: '/Doctor/Reception/{id}', // Путь к методу в контроллере
+						url: '/Admin/Reception', // Путь к методу в контроллере
 						type: 'PUT',
-						data: { receptionid: receptionId, userid: id }, // Отправляем ID клиники
+						data: { receptionid: receptionId }, // Отправляем ID клиники
 						success: function (data) {
 							$('#doctors-list').empty();
 							$('#zapis-list').empty();

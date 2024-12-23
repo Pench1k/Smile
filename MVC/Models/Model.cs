@@ -17,7 +17,7 @@ namespace MVC.Models
 
         public string? Recommendations { get; set; }
 
-
+      
     }
 
     public enum AttendanceStatus

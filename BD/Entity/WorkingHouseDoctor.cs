@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
 
-        public int? WorkingHouseId { get; set; }
+        public int? WorkingHoursId { get; set; }
         public WorkingHours? WorkingHours { get; set; }
 
         public int? DoctorId {  get; set; }

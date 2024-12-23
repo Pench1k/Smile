@@ -250,11 +250,15 @@
 
             @if (User.IsInRole("Врач"))
             {
-                <a href="#" onclick="openModal()">Просмотреть приемы</a>
+                <a href="@Url.Action("Doctor", "MakeAnAppointment", new { id = UserManager.GetUserId(User) })">
+                    Просмотр приемов
+                </a>
             }
             @if (User.IsInRole("Админ"))
             {
-                <a href="#" onclick="openModal()">Подтвердить приемы</a>
+                  <a href="@Url.Action("Admin", "MakeAnAppointment", new { id = UserManager.GetUserId(User) })">
+                    Подтверждение приема
+                </a>
             }
             <a href="#">Контакты</a>
         </nav>
